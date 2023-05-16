@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import heroLanding from "../assets/heroLanding.png";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <body>
+        <img src={heroLanding} alt="landing page bg" />
+      </body>
+    </>
+  );
+};
 
-export default Home
+export default Home;
