@@ -35,7 +35,7 @@ function App() {
     <Route path="/concertgoshow" element={ <ConcertGoShow /> } />
     <Route path="/aboutus" element={ <AboutUs /> } />
     <Route path="/concertgofaq" element={ <ConcertGoFAQ /> } />
-    <Route path="/notfound" element={ <NotFound /> } />
+    <Route path="/*" element={ <NotFound /> } />
    </Routes>   
    <Footer />
    </>
