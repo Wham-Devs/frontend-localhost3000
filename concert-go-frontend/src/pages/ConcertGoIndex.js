@@ -1,9 +1,5 @@
 import { useState } from "react"
 import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
   Card,
   CardBody,
   CardTitle,
