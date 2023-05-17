@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
   Card,
   CardBody,
@@ -6,12 +5,12 @@ import {
   CardSubtitle,
   CardText,
   Button,
-} from "reactstrap"
+} from "reactstrap";
+import { NavLink } from "react-router-dom";
 
-const ConcertGoIndex = ({ args, currentEvent }) => {
+const ConcertGoIndex = ({ currentEvent }) => {
   return (
     <>
-      <h1>Event List</h1>
       <div className="grid grid-cols-3 gap-8">
         {currentEvent?.map(
           ({
@@ -44,17 +43,21 @@ const ConcertGoIndex = ({ args, currentEvent }) => {
                     <br />
                     {city}, {state}
                     <br />
-                    {date} Doors Open @ {show_time}
+                    {date} @ {show_time}
                   </CardText>
-                  <Button>View Event</Button>
                 </CardBody>
+                <NavLink to={`/concertgoshow/${id}`}>
+                  <Button className="backdrop bg-gray-400 bg-opacity-0 border border-white px-3 py-1.5 rounded focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-40 hover:bg-opacity-10 text-lg">
+                    View Event
+                  </Button>
+                </NavLink>
               </Card>
-            )
+            );
           }
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ConcertGoIndex
+export default ConcertGoIndex;

@@ -1,5 +1,6 @@
 const mockEvents = [
 	{
+		id: 1,
 		city: "San Diego",
 		state: "CA",
 		venue: "Petco Park",
@@ -11,6 +12,7 @@ const mockEvents = [
 		user_id: 1,
 	},
 	{
+		id: 2,
 		city: "San Diego",
 		state: "CA",
 		venue: "Pechanga Arena",
@@ -22,6 +24,7 @@ const mockEvents = [
 		user_id: 1,
 	},
 	{
+		id: 3,
 		city: "San Diego",
 		state: "CA",
 		venue: "Snapdragon Stadium",
@@ -33,6 +36,7 @@ const mockEvents = [
 		user_id: 2,
 	},
 	{
+		id: 4,
 		city: "San Diego",
 		state: "CA",
 		venue: "Viejas Arena",
