@@ -14,6 +14,6 @@ describe("<Footer />", () => {
     expect(screen.getByText(/privacy policy/i))
     expect(screen.getByText(/licensing/i))
     expect(screen.getByText(/contact/i))
-    screen.logTestingPlaygroundURL()
+    
   })
 })
