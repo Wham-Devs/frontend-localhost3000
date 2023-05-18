@@ -32,7 +32,7 @@ if (!selectedEvent) {
             <div>
               <NavLink to={`/concertgoedit/${selectedEvent.id}`} className="mx-2">
                 <button className="backdrop bg-white bg-opacity-0 border border-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-40 hover:bg-opacity-10 text-lg justify-center text-center">
-                  Edit Profile
+                  Edit Event
                 </button>
               </NavLink>
               <NavLink
