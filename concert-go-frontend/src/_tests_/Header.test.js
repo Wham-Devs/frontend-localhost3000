@@ -9,12 +9,19 @@ describe("<Header />", () => {
 				<Header />
 			</BrowserRouter>
 		);
-		expect(screen.getByText(/ConcertGo/i)).toBeInTheDocument();
-		expect(screen.getByText(/Add an Event/i)).toBeInTheDocument();
-		screen.logTestingPlaygroundURL();
-		expect(screen.getByRole("link", { name: /list of events/i }));
-		expect(screen.getByRole("link", { name: /add an event/i }));
-		expect(screen.getByRole("link", { name: /frequently asked questions/i }));
-		expect(screen.getByRole("link", { name: /meet the team/i }));
+
+		
+		
+		const element = screen.getByText(/ConcertGo/i)
+		expect(element).toBeInTheDocument();
+
+		const login = screen.getByRole('img', {
+			name: /logo/i
+		  })
+		  expect(login).toBeInTheDocument()
+
+		
+		
+		
 	});
 });

@@ -30,12 +30,12 @@ describe("<ConcertGoNew />", () => {
     })
     expect(submit).toBeInTheDocument()
 
-    expect(screen.getByText(/city/i)).toBeInTheDocument
+    expect(screen.getByText(/city/i)).toBeInTheDocument()
 
-    expect(screen.getByText(/state/i)).toBeInTheDocument
+    expect(screen.getByText(/state/i)).toBeInTheDocument()
 
-    expect(screen.getByText(/date/i)).toBeInTheDocument
+    expect(screen.getByText(/date/i)).toBeInTheDocument()
 
-    expect(screen.getByText(/show time/i)).toBeInTheDocument
+    expect(screen.getByText(/show time/i)).toBeInTheDocument()
   })
 })
