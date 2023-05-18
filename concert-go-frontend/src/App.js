@@ -22,6 +22,8 @@ function App() {
 
   const [currentEvent, setCurrentEvent] = useState(mockEvents)
 
+  const [currentUser, setCurrentUser] = useState(1)
+
   const updateEvent = (event, id) => {
     console.log("event:", event)
     console.log("id:", id)
@@ -30,14 +32,14 @@ function App() {
   
   return (
    <>
-   <Header />
+   <Header currentUser={ currentUser }/>
    <Routes>
     <Route path="/signin" element={ <SignIn /> } />
     <Route path="/signup" element={ <SignUp /> } />
     <Route path="/" element={ <Home /> } />
     <Route path="/concertgoedit/:id" element={ <ConcertGoEdit currentEvent={currentEvent} updateEvent = {updateEvent} /> } />
     <Route path="/concertgoindex" element={ <ConcertGoIndex currentEvent={ currentEvent }/> } />
-    <Route path="/concertgoprotectedindex" element={ <ConcertGoProtectedIndex /> } />
+    <Route path="/concertgoprotectedindex" element={ <ConcertGoProtectedIndex currentEvent={ currentEvent } currentUser={ currentUser } /> } />
     <Route path="/concertgonew" element={ <ConcertGoNew /> } />
     <Route path="/concertgoshow/:id" element={ <ConcertGoShow currentEvent={currentEvent} /> } />
     <Route path="/aboutus" element={ <AboutUs /> } />
