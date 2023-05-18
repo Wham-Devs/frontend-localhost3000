@@ -7,7 +7,7 @@ describe("<ConcertGoIndex />", () => {
   it("Show the user a list of event cards", () => {
     render(
       <BrowserRouter>
-        <ConcertGoIndex />
+        <ConcertGoIndex events={mockEvents} />
       </BrowserRouter>
     )
 

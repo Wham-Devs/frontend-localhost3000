@@ -5,12 +5,13 @@ import {
   CardSubtitle,
   CardText,
   Button,
-} from "reactstrap";
-import { NavLink } from "react-router-dom";
+} from "reactstrap"
+import { NavLink } from "react-router-dom"
 
 const ConcertGoIndex = ({ currentEvent }) => {
   return (
     <>
+      <h1 className="text-2xl font-bold mb-4 ml-4 text-center">Event List</h1>
       <div className="grid grid-cols-3 gap-8">
         {currentEvent?.map(
           ({
@@ -52,12 +53,12 @@ const ConcertGoIndex = ({ currentEvent }) => {
                   </Button>
                 </NavLink>
               </Card>
-            );
+            )
           }
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ConcertGoIndex;
+export default ConcertGoIndex
