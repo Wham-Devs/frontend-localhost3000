@@ -1,7 +1,23 @@
 import React from "react";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
+const SignUp = ({signup}) => {
 
-const SignUp = () => {
+const formRef = useRef()
+const navigate = useNavigate()
+const handleSubmit = (e) => {
+  e.preventDefault()
+  const formData = new FormData(formRef.current)
+  const data = Object.fromEntries(formData)
+  const userInfo = {
+    "user": {email: data.email, password: data.password, password_confirmation: data.password_confirmation}
+  }
+  signup(userInfo)
+  navigate("/")
+  e.target.reset()
+}
+
   return (
     <>
       <div class="h-screen flex">
@@ -22,7 +38,7 @@ const SignUp = () => {
           </div>
         </div>
         <div class="flex w-1/2 justify-center items-center bg-white">
-          <form class="bg-white">
+          <form ref={formRef} onSubmit={handleSubmit} class="bg-white">
             <h1 class="text-gray-800 font-bold text-2xl mb-1">
               Create an Account
             </h1>
@@ -44,8 +60,7 @@ const SignUp = () => {
               <input
                 class="pl-2 outline-none border-none"
                 type="text"
-                name=""
-                id=""
+                name="email"
                 placeholder="Enter Email"
               />
             </div>
@@ -66,8 +81,7 @@ const SignUp = () => {
               <input
                 class="pl-2 outline-none border-none"
                 type="text"
-                name=""
-                id=""
+                name="password_confirmation"
                 placeholder="Password"
               />
             </div>
@@ -87,8 +101,7 @@ const SignUp = () => {
               <input
                 class="pl-2 outline-none border-none"
                 type="text"
-                name=""
-                id=""
+                name="password_confirmation"
                 placeholder="Re-enter Password"
               />
             </div>
@@ -96,11 +109,8 @@ const SignUp = () => {
               type="submit"
               class="block w-full bg-red-700 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
             >
-              Login
+              Register
             </button>
-            <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">
-              Forgot Password ?
-            </span>
           </form>
         </div>
       </div>

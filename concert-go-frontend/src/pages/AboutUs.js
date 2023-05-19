@@ -37,7 +37,8 @@ const AboutUs = () => {
 		},
 	];
 	return (
-		<body className="bg-black grid grid-cols-4 gap-8">
+		<body className="bg-black grid grid-cols-4 gap-8 h-screen w-screen pt-40 px-4">
+			
 			{aboutUs.map(({ aboutUs, id, name, role, image, about }) => {
 				return (
 					<Card className="bg-transparent">

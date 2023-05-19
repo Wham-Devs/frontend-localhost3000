@@ -12,7 +12,8 @@ const ConcertGoIndex = ({ currentEvent }) => {
   return (
     <>
       <h1 className="text-2xl font-bold mb-4 ml-4 text-center">Event List</h1>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="h-screen w-screen">
+      <div className=" gap-20 justify-center align-middle flex ">
         {currentEvent?.map(
           ({
             currentEvent,
@@ -32,6 +33,7 @@ const ConcertGoIndex = ({ currentEvent }) => {
                 style={{
                   width: "18rem",
                 }}
+                className="rounded-lg"
               >
                 <img alt="Concert Image" src={images} />
                 <CardBody>
@@ -56,6 +58,7 @@ const ConcertGoIndex = ({ currentEvent }) => {
             )
           }
         )}
+      </div>
       </div>
     </>
   )

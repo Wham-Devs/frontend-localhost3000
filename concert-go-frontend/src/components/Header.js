@@ -4,7 +4,9 @@ const Header = ({ currentUser }) => {
 
 
   return (
+    <header class="header">
     <Navigation currentUser={ currentUser }/>
+    </header>
   );
 };
 

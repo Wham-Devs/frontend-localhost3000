@@ -4,7 +4,7 @@ import { NavLink } from "reactstrap";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-black rounded-lg shadow m-0 dark:bg-gray-800 p-0 ">
+      <footer className="bg-black rounded-lg shadow m-0 dark:bg-gray-800 p-0 sticky bottom-0">
         <div className="w-full mx-auto max-w-screen-xl p-0 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             <NavLink to="https://flowbite.com/" className="hover:underline">

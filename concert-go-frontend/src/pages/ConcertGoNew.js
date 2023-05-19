@@ -1,7 +1,34 @@
-import React from "react"
+import {useNavigate} from "react-router-dom"
+import { useState } from "react"
 import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 
-const ConcertGoNew = () => {
+
+const ConcertGoNew = ({createEvent, currentUser}) => {
+
+const navigate = useNavigate()
+
+const [newEvent, setNewEvent] = useState({
+  city: "",
+  state: "",
+  venue: "",
+  artist: "",
+  date: "",
+  show_time: "",
+  genre: "",
+  images: "",
+  user_id: 1
+});
+
+const handleChange = (e) => {
+  console.log(e.target.value)
+  setNewEvent({...newEvent, [e.target.name]: e.target.value})
+}
+
+const handleClick = () => {
+  createEvent(newEvent)
+  navigate("/concertgoindex")
+}
+
   return (
     <>
       <h1 className="text-2xl font-bold mb-4 ml-4 text-center">
@@ -10,10 +37,10 @@ const ConcertGoNew = () => {
       <div className="h-screen flex">
         <div className="flex w-1/2 bg-gradient-to-tr from-red-900 to-red-500 i justify-around items-center">
           <div>
-            <h1 className="text-gray-200 font-bold text-7xl font-anton shadow-black ">
+            <h1 className="text-gray-200 font-bold text-7xl font-anton shadow-black italic ">
               CONCERT GO
             </h1>
-            <p className="text-white mt-1 ml-1 shadow-lg shadow-gray-800">
+            <p className="text-white mt-1 ml-1 shadow-lg shadow-gray-800 italic">
               FIND YOUR NEXT VENUE
             </p>
             <button
@@ -38,6 +65,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter city here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.city}
               />
             </FormGroup>
             <FormGroup>
@@ -48,6 +77,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter state here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.state}
               />
             </FormGroup>
             <FormGroup>
@@ -58,6 +89,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter venue here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.venue}
               />
             </FormGroup>
             <FormGroup>
@@ -68,6 +101,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter artist here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.artist}
               />
             </FormGroup>
             <FormGroup>
@@ -78,6 +113,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter date here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.date}
               />
             </FormGroup>
             <FormGroup>
@@ -88,6 +125,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter show time here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.show_time}
               />
             </FormGroup>
             <FormGroup>
@@ -98,6 +137,8 @@ const ConcertGoNew = () => {
                 placeholder="Enter genre here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.genre}
               />
             </FormGroup>
             <FormGroup>
@@ -108,9 +149,11 @@ const ConcertGoNew = () => {
                 placeholder="Enter image URL here"
                 type="text"
                 className="shadow-lg border-3 border-black"
+                onChange={handleChange}
+                value={newEvent.images}
               />
             </FormGroup>
-            <Button>Submit</Button>
+            <Button className="submit" onClick={handleClick}>Submit</Button>
           </Form>
         </div>
       </div>
