@@ -1,28 +1,38 @@
 import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate, useParams } from "react-router-dom";
-const ConcertGoEdit = ({ currentEvent, updateEvent }) => {
+import { NavLink } from "react-router-dom";
+
+
+const ConcertGoEdit = ({ currentEvent, updateEvent, currentUser, deleteEvent }) => {
+
+
+
   const { id } = useParams();
+
+  const navigate = useNavigate();
+ console.log(currentUser)
   let current = currentEvent?.find((event) => event.id === +id);
 
   const [editEvent, setEditEvent] = useState({
-    city: current.city,
-    state: current.state,
-    venue: current.venue,
-    artist: current.artist,
-    date: current.date,
-    show_time: current.show_time,
-    genre: current.genre,
-    images: current.images,
+    user_id: currentUser?.id,
+    city: current?.city,
+    state: current?.state,
+    venue: current?.venue,
+    artist: current?.artist,
+    date: current?.date,
+    show_time: current?.show_time,
+    genre: current?.genre,
+    images: current?.images,
   });
 
   const handleChange = (e) => {
     console.log(e.target.value);
     setEditEvent({ ...editEvent, [e.target.name]: e.target.value });
   };
-  const navigate = useNavigate();
+  
   const handleSubmit = () => {
-    updateEvent(editEvent);
+    updateEvent(editEvent, current.id);
     navigate(`/concertgoshow/${id}`);
   };
 
@@ -31,10 +41,10 @@ const ConcertGoEdit = ({ currentEvent, updateEvent }) => {
       <div class="h-screen flex">
         <div class="flex w-1/2 bg-gradient-to-tr from-red-900 to-red-500 i justify-around items-center">
           <div>
-            <h1 class="text-gray-200 font-bold text-7xl font-anton shadow-black ">
+            <h1 class="text-gray-200 font-bold text-7xl font-anton shadow-black italic ">
               CONCERT GO
             </h1>
-            <p class="text-white mt-1 ml-1 shadow-lg shadow-gray-800">
+            <p class="text-white mt-1 ml-1 shadow-lg shadow-gray-800 italic">
               FIND YOUR NEXT VENUE
             </p>
             <button
@@ -149,6 +159,7 @@ const ConcertGoEdit = ({ currentEvent, updateEvent }) => {
             <Button onClick={handleSubmit} name="button">
               Submit
             </Button>
+
           </Form>
         </div>
       </div>

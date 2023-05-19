@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-const ConcertGoShow = ({currentEvent}) => {
+const ConcertGoShow = ({currentEvent, deleteEvent}) => {
 
 const { id } = useParams()
 let selectedEvent = currentEvent?.find((event) => event.id === +id) 
@@ -47,6 +47,11 @@ if (!selectedEvent) {
                 className="nav-link"
               >
               </NavLink>
+              <NavLink to="/concertgoindex" className="nav-link">
+            <button onClick={() => deleteEvent(selectedEvent.id)}>
+              Delete Event
+            </button>
+            </NavLink>
             </div>
           </div>
         </div>
