@@ -21,7 +21,7 @@ function App() {
 
   const [currentEvent, setCurrentEvent] = useState([]);
 
-  const [currentUser, setCurrentUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     readEvent();

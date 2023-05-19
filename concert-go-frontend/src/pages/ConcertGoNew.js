@@ -20,7 +20,6 @@ const [newEvent, setNewEvent] = useState({
 });
 
 const handleChange = (e) => {
-  console.log(e.target.value)
   setNewEvent({...newEvent, [e.target.name]: e.target.value})
 }
 

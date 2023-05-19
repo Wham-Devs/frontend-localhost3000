@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 const ConcertGoProtectedIndex = ({ currentEvent, currentUser }) => {
   const myEvents = currentEvent?.filter(events => currentUser?.id === events.user_id)
-  console.log("currentuser id: ", currentUser.id)
+  
     
     { myEvents.map((events, index) => {
       return(
