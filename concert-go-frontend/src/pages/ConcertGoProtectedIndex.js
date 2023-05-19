@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom"
 
 const ConcertGoProtectedIndex = ({ currentEvent, currentUser }) => {
   const myEvents = currentEvent?.filter(events => currentUser?.id === events.user_id)
-  
-    
-    { myEvents.map((events, index) => {
+  // console.log("user id: ", events.user_id)
       return(
          <>
-      <div key={ index } className="flex justify-center">
+       { myEvents.map((events, index) => {
+        return(
+           <div key={ index } className="flex justify-center">
         <div className="bg-white shadow overflow-hidden rounded-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
           <img className="w-full" alt="Card" src={events.images} />
           <div className="px-4 py-3">
@@ -44,11 +44,13 @@ const ConcertGoProtectedIndex = ({ currentEvent, currentUser }) => {
           </div>
         </div>
       </div>
-    </>
-      )
-    })}
+        )
+
+       })}
+ </>
     
   
+      )
 }
 
 export default ConcertGoProtectedIndex

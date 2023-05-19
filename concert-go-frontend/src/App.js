@@ -148,7 +148,9 @@ function App() {
     <Route path="/" element={ <Home /> } />
     <Route path="/concertgoedit/:id" element={ <ConcertGoEdit currentEvent={currentEvent} updateEvent = {updateEvent} currentUser={currentUser} deleteEvent={deleteEvent} /> } />
     <Route path="/concertgoindex" element={ <ConcertGoIndex currentEvent={ currentEvent }/> } />
-    <Route path="/concertgoprotectedindex" element={ <ConcertGoProtectedIndex currentEvent={ currentEvent } currentUser={ currentUser } deleteEvent = {deleteEvent} /> } />
+
+     <Route path="/concertgoprotectedindex" element={ <ConcertGoProtectedIndex currentEvent={ currentEvent } currentUser={ currentUser } deleteEvent = {deleteEvent} /> } />
+
     <Route path="/concertgonew" element={ <ConcertGoNew createEvent={createEvent} currentUser={currentUser}/> } />
     <Route path="/concertgoshow/:id" element={ <ConcertGoShow currentEvent={currentEvent} deleteEvent={deleteEvent} /> } />
     <Route path="/aboutus" element={ <AboutUs /> } />

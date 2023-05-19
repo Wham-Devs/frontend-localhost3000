@@ -16,8 +16,9 @@ const [newEvent, setNewEvent] = useState({
   show_time: "",
   genre: "",
   images: "",
-  user_id: 1
+  user_id: currentUser.id
 });
+console.log("id: ", currentUser.id)
 
 const handleChange = (e) => {
   setNewEvent({...newEvent, [e.target.name]: e.target.value})
@@ -25,7 +26,7 @@ const handleChange = (e) => {
 
 const handleClick = () => {
   createEvent(newEvent)
-  navigate("/concertgoindex")
+  navigate("/concertgoprotectedindex")
 }
 
   return (

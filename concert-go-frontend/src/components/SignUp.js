@@ -20,32 +20,32 @@ const handleSubmit = (e) => {
 
   return (
     <>
-      <div class="h-screen flex">
-        <div class="flex w-1/2 bg-gradient-to-tr from-red-900 to-red-500 i justify-around items-center">
+      <div className="h-screen flex">
+        <div className="flex w-1/2 bg-gradient-to-tr from-red-900 to-red-500 i justify-around items-center">
           <div>
-            <h1 class="text-gray-200 font-bold text-7xl font-anton shadow-black ">
+            <h1 className="text-gray-200 font-bold text-7xl font-anton shadow-black ">
               CONCERT GO
             </h1>
-            <p class="text-white mt-1 ml-1 shadow-lg shadow-gray-800">
+            <p className="text-white mt-1 ml-1 shadow-lg shadow-gray-800">
               FIND YOUR NEXT VENUE
             </p>
             <button
               type="submit"
-              class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2"
+              className="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2"
             >
               Read More
             </button>
           </div>
         </div>
-        <div class="flex w-1/2 justify-center items-center bg-white">
-          <form ref={formRef} onSubmit={handleSubmit} class="bg-white">
-            <h1 class="text-gray-800 font-bold text-2xl mb-1">
+        <div className="flex w-1/2 justify-center items-center bg-white">
+          <form ref={formRef} onSubmit={handleSubmit} className="bg-white">
+            <h1 className="text-gray-800 font-bold text-2xl mb-1">
               Create an Account
             </h1>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -58,16 +58,17 @@ const handleSubmit = (e) => {
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none"
                 type="text"
                 name="email"
                 placeholder="Enter Email"
+               
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-gray-400"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -79,16 +80,17 @@ const handleSubmit = (e) => {
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none"
                 type="text"
-                name="password_confirmation"
+                name="password"
                 placeholder="Password"
+                
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+            <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-gray-400"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -99,7 +101,7 @@ const handleSubmit = (e) => {
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 outline-none border-none"
                 type="text"
                 name="password_confirmation"
                 placeholder="Re-enter Password"
@@ -107,7 +109,7 @@ const handleSubmit = (e) => {
             </div>
             <button
               type="submit"
-              class="block w-full bg-red-700 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
+              className="block w-full bg-red-700 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
             >
               Register
             </button>
