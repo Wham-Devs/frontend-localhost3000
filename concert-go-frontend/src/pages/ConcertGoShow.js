@@ -1,14 +1,13 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import React from "react"
+import { NavLink } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
-const ConcertGoShow = ({currentEvent, deleteEvent}) => {
-
-const { id } = useParams()
-let selectedEvent = currentEvent?.find((event) => event.id === +id) 
-if (!selectedEvent) {
-  return <div>Loading...</div>
-}
+const ConcertGoShow = ({ currentEvent, deleteEvent }) => {
+  const { id } = useParams()
+  let selectedEvent = currentEvent?.find((event) => event.id === +id)
+  if (!selectedEvent) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>
@@ -20,17 +19,20 @@ if (!selectedEvent) {
           <img className="w-full" alt="Card" src={selectedEvent.images} />
           <div className="px-4 py-3">
             <h3 className="text-lg font-medium text-gray-900">
-              {selectedEvent.artist} <br/>
+              {selectedEvent.artist} <br />
               {selectedEvent.genre}
             </h3>
             <p className="mt-1 text-sm text-gray-500">
-              {selectedEvent.city}, {selectedEvent.state} <br/>
+              {selectedEvent.city}, {selectedEvent.state} <br />
               {selectedEvent.date} @ {selectedEvent.show_time}
             </p>
           </div>
           <div className="border-t border-gray-200 px-4 py-2">
             <div>
-              <NavLink to={`/concertgoedit/${selectedEvent.id}`} className="mx-2">
+              <NavLink
+                to={`/concertgoedit/${selectedEvent.id}`}
+                className="mx-2"
+              >
                 <button className="backdrop bg-white bg-opacity-0 border border-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-40 hover:bg-opacity-10 text-lg justify-center text-center">
                   Edit Event
                 </button>
@@ -45,19 +47,18 @@ if (!selectedEvent) {
                 }}
                 to="/concertgoindex/"
                 className="nav-link"
-              >
-              </NavLink>
+              ></NavLink>
               <NavLink to="/concertgoindex" className="nav-link">
-            <button onClick={() => deleteEvent(selectedEvent.id)}>
-              Delete Event
-            </button>
-            </NavLink>
+                <button onClick={() => deleteEvent(selectedEvent.id)}>
+                  Delete Event
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ConcertGoShow;
+export default ConcertGoShow
