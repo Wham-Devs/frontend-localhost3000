@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { useNavigate, useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useState } from "react"
+import { Form, FormGroup, Label, Input, Button } from "reactstrap"
+import { useNavigate, useParams } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
+const ConcertGoEdit = ({
+  currentEvent,
+  updateEvent,
+  currentUser,
+  deleteEvent,
+}) => {
+  const { id } = useParams()
 
-const ConcertGoEdit = ({ currentEvent, updateEvent, currentUser, deleteEvent }) => {
-
-
-
-  const { id } = useParams();
-
-  const navigate = useNavigate();
- console.log(currentUser)
-  let current = currentEvent?.find((event) => event.id === +id);
+  const navigate = useNavigate()
+  let current = currentEvent?.find((event) => event.id === +id)
 
   const [editEvent, setEditEvent] = useState({
     user_id: currentUser?.id,
@@ -24,17 +24,17 @@ const ConcertGoEdit = ({ currentEvent, updateEvent, currentUser, deleteEvent }) 
     show_time: current?.show_time,
     genre: current?.genre,
     images: current?.images,
-  });
+  })
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-    setEditEvent({ ...editEvent, [e.target.name]: e.target.value });
-  };
-  
+    console.log(e.target.value)
+    setEditEvent({ ...editEvent, [e.target.name]: e.target.value })
+  }
+
   const handleSubmit = () => {
-    updateEvent(editEvent, current.id);
-    navigate(`/concertgoshow/${id}`);
-  };
+    updateEvent(editEvent, current.id)
+    navigate(`/concertgoshow/${id}`)
+  }
 
   return (
     <>
@@ -159,12 +159,11 @@ const ConcertGoEdit = ({ currentEvent, updateEvent, currentUser, deleteEvent }) 
             <Button onClick={handleSubmit} name="button">
               Submit
             </Button>
-
           </Form>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ConcertGoEdit;
+export default ConcertGoEdit
