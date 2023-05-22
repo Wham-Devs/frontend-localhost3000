@@ -1,5 +1,4 @@
 import React from "react";
-import heroLanding from "../assets/heroLanding.png";
 import videobg from "../assets/videobg.mp4"
 import logobg from "../assets/CONCERT GO6.png"
 

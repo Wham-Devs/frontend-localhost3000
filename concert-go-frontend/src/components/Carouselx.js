@@ -72,7 +72,10 @@ const Carouselx = (args) => {
         next={next}
         previous={previous}
         {...args}
-        className="rounded-lg shadow-lg shadow-black"
+        
+        style={{boxShadow: "0 0 15px white",
+        
+       }}
       >
         <CarouselIndicators
           items={items}
