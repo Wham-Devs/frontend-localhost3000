@@ -1,16 +1,24 @@
-import { screen, render } from "@testing-library/react"
-import ConcertGoIndex from "../pages/ConcertGoIndex"
-import { BrowserRouter } from "react-router-dom"
-import mockEvents from "../mockEvents"
+import { screen, render } from "@testing-library/react";
+import ConcertGoIndex from "../pages/ConcertGoIndex";
+import { BrowserRouter } from "react-router-dom";
 
 describe("<ConcertGoIndex />", () => {
   it("Show the user a list of event cards", () => {
     render(
       <BrowserRouter>
-        <ConcertGoIndex events={mockEvents} />
+        <ConcertGoIndex />
       </BrowserRouter>
-    )
+    );
 
-    expect(screen.getByText("Event List")).toBeInTheDocument()
-  })
-})
+    expect(
+      screen.getByRole("heading", {
+        name: /event list/i,
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", {
+        name: /slide 2/i,
+      })
+    ).toBeInTheDocument();
+  });
+});
