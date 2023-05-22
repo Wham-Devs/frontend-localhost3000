@@ -1,6 +1,6 @@
-import { screen, render, waitFor } from "@testing-library/react"
-import ConcertGoShow from "../pages/ConcertGoShow"
-import { MemoryRouter } from "react-router-dom"
+import { screen, render } from "@testing-library/react";
+import ConcertGoShow from "../pages/ConcertGoShow";
+import { MemoryRouter } from "react-router-dom";
 
 describe("<ConcertGoShow />", () => {
   it("renders without crashing", () => {
@@ -8,10 +8,9 @@ describe("<ConcertGoShow />", () => {
       <MemoryRouter initialEntries={["/concertgoshow/1"]}>
         <ConcertGoShow />
       </MemoryRouter>
-    )
+    );
 
-    const element = screen.getByText(/Loading.../i)
-    expect(element).toBeInTheDocument()
-    waitFor(() => expect(screen.getByText(/Your listing:/i)))
-  })
-})
+    const element = screen.getByText(/Loading.../i);
+    expect(element).toBeInTheDocument();
+  });
+});

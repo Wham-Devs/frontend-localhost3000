@@ -5,14 +5,14 @@ import logobg from "../assets/CONCERT GO6.png"
 const Home = () => {
   return (
     <>
-      <div class="bg">
-        {/* <img src={heroLanding} alt="landing page bg" className="w-screen" /> */}
-        <div class="video-container">
-        <video src={videobg} autoPlay loop muted />
-        <div class="overlay"></div>
+      <div className="bg">
+        {/* <img src={heroLanding} alt="landing page bg" classNameName="w-screen" /> */}
+        <div className="video-container">
+        <video src={videobg} alt="background-video" autoPlay loop muted />
+        <div className="overlay"></div>
         </div>
-        <div class="bgtext">
-         <img src={logobg} />
+        <div className="bgtext">
+         <img src={logobg} alt="background-image" />
         </div>
       </div>
     </>

@@ -18,7 +18,7 @@ const [newEvent, setNewEvent] = useState({
   images: "",
   user_id: currentUser.id
 });
-console.log("id: ", currentUser.id)
+
 
 const handleChange = (e) => {
   setNewEvent({...newEvent, [e.target.name]: e.target.value})
