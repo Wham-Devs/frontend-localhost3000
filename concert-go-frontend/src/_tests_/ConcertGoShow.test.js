@@ -9,7 +9,7 @@ describe("<ConcertGoShow />", () => {
         <ConcertGoShow />
       </MemoryRouter>
     );
-
+screen.logTestingPlaygroundURL()
     const element = screen.getByText(/Loading.../i);
     expect(element).toBeInTheDocument();
   });

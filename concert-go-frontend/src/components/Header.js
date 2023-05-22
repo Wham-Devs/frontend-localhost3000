@@ -1,11 +1,11 @@
 import Navigation from "./Navigation";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, logout }) => {
 
 
   return (
-    <header class="header">
-    <Navigation currentUser={ currentUser }/>
+    <header className="header">
+    <Navigation currentUser={ currentUser } logout={ logout }/>
     </header>
   );
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 import ConcertGoEdit from "./pages/ConcertGoEdit";
 import ConcertGoIndex from "./pages/ConcertGoIndex";
 import ConcertGoNew from "./pages/ConcertGoNew";
@@ -39,7 +40,7 @@ function App() {
       },
       method: "DELETE",
     })
-      .then((payload) => {
+      .then(() => {
         localStorage.removeItem("token");
         setCurrentUser(null);
       })

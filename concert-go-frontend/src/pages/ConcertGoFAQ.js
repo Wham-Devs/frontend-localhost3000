@@ -64,9 +64,9 @@ const ConcertGoFAQ = () => {
 			<h1 className="text-red-500 font-anton text-7xl w-screen bg-black p-0 m">FAQs</h1> <br/>
 		<div className="bg-black grid grid-cols-3 gap-8 h-screen w-screen">
 		
-			{faqs.map(({ faqs, id, question, answer }) => {
+			{faqs.map(({ id, question, answer }) => {
 				return (
-					<div> 
+					<div key={ id }> 
 					<Card className="bg-transparent z-10">
 						<CardBody
 							// className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100"
