@@ -15,7 +15,7 @@ import ConcertGoFAQ from "./pages/ConcertGoFAQ";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import { useEffect } from "react";
-import Carouselx from "./components/Carouselx"
+import TestCard from "./components/TestCard";
 
 
 function App() {
@@ -157,7 +157,7 @@ function App() {
     <Route path="/aboutus" element={ <AboutUs /> } />
     <Route path="/concertgofaqs" element={ <ConcertGoFAQ /> } />
     <Route path="/*" element={ <NotFound /> } />
-    <Route path="/test" element={ <Carouselx /> } />
+    <Route path="/test" element={ <TestCard /> } />
    </Routes>   
    <Footer />
    </>

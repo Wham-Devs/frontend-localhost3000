@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, CardLink, CardText } from "reactstrap";
+import mark from  "../assets/mark.png"
 
 const AboutUs = () => {
 	const aboutUs = [
@@ -23,7 +24,7 @@ const AboutUs = () => {
 			id: 3,
 			name: "Mark Nou",
 			role: "Design Lead",
-			image: "picture.url",
+			src: "concert-go-frontend/src/assets/mark.png",
 			about:
 				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non mauris vitae elit cursus lacinia. Ut bibendum elit id mi luctus, sed aliquam lectus varius. Proin consequat neque vel justo rutrum, vitae pharetra leo condimentum. Sed at justo ullamcorper, aliquet erat at, lacinia sapien. Nunc varius felis vitae ex rhoncus, nec ultrices diam commodo. Donec id lacinia elit. Nam vehicula tellus ut ullamcorper efficitur. Nulla facilisi. Integer in ligula sed risus lobortis dictum. Suspendisse a purus ut ipsum luctus lacinia et at justo. Suspendisse potenti. Proin iaculis metus vitae leo ultrices sollicitudin. Curabitur vulputate lectus non felis congue, eget condimentum velit finibus.",
 		},
