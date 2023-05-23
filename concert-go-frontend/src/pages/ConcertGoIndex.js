@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardText,
-  Button,
-} from "reactstrap";
-import { NavLink } from "react-router-dom";
 import Carouselx from "../components/Carouselx";
 
 
@@ -22,7 +13,6 @@ const ConcertGoIndex = ({ currentEvent }) => {
           <div className="grid grid-cols-4 gap-8 justify-center align-middle pt-10">
             {currentEvent?.map(
               ({
-                currentEvent,
                 city,
                 state,
                 venue,

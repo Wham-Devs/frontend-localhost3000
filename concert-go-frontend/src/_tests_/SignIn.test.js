@@ -9,7 +9,7 @@ describe("<SignIn/>", () => {
         <SignIn />
       </BrowserRouter>
     );
-
+    expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
     expect(
       screen.getByRole("heading", {
         name: /concert go/i,

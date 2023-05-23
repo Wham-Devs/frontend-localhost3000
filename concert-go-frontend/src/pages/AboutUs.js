@@ -38,11 +38,11 @@ const AboutUs = () => {
 		},
 	];
 	return (
-		<body className="bg-black grid grid-cols-4 gap-8 h-screen w-screen pt-40 px-4">
+		<div className="bg-black grid grid-cols-4 gap-8 h-screen w-screen pt-40 px-4">
 			
 			{aboutUs.map(({ aboutUs, id, name, role, image, about }) => {
 				return (
-					<Card className="bg-transparent">
+					<Card key={ id }className="bg-transparent">
 						<CardBody
 							className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100"
 							key={id}>
@@ -68,7 +68,7 @@ const AboutUs = () => {
 					</Card>
 				);
 			})}
-		</body>
+		</div>
 	);
 };
 

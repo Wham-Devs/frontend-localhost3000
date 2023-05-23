@@ -6,7 +6,6 @@ const Home = () => {
   return (
     <>
       <div className="bg">
-        {/* <img src={heroLanding} alt="landing page bg" classNameName="w-screen" /> */}
         <div className="video-container">
         <video src={videobg} alt="background-video" autoPlay loop muted />
         <div className="overlay"></div>
