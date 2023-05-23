@@ -27,7 +27,7 @@ function App() {
     readEvent()
   }, [])
 
-  const url = "http://localhost:3000"
+  const url = "https://concertgo-backend.onrender.com"
 
   // LOGOUT
   const logout = () => {
