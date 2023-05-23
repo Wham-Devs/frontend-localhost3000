@@ -9,7 +9,6 @@ describe("<SignUp/>", () => {
 				<SignUp />
 			</BrowserRouter>
 		);
-		screen.logTestingPlaygroundURL();
 		expect(
 			screen.getByRole("heading", {
 				name: /concert go/i,

@@ -9,7 +9,6 @@ describe("<SignIn/>", () => {
         <SignIn />
       </BrowserRouter>
     );
-screen.logTestingPlaygroundURL()
     expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
     expect(
       screen.getByRole("heading", {
