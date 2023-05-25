@@ -17,152 +17,216 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import { useEffect } from "react";
 import TestCard from "./components/TestCard";
+import TicketMasterAPI from "./pages/TicketMasterAPI";
 
 
 function App() {
 
   const [currentEvent, setCurrentEvent] = useState([]);
+	const [currentTicketMaster, setCurrentTicketMaster] = useState(null);
+	const [currentUser, setCurrentUser] = useState(1);
 
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    readEvent();
-  }, []);
+	useEffect(() => {
+		readEvent();
+		ticketMasterAPI();
+	}, []);
 
   const url = "http://localhost:3000";
 
-// LOGOUT
-  const logout = () => {
-    fetch(`${url}/logout`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-      method: "DELETE",
-    })
-      .then(() => {
-        localStorage.removeItem("token");
-        setCurrentUser(null);
-      })
-      .catch((error) => console.log("logout error: ", error));
-  };
+  const ticketMasterAPI = () => {
+		fetch(
+			"https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=324&apikey=LcWUOGfoF3Gb6ZcpswipMTtkcoVr9gPw&locale=*"
+		)
+			.then((response) => response.json())
+			.then((payload) => setCurrentTicketMaster(payload))
+			.catch((error) => console.log("errors: ", error));
 
-// LOGIN
-  const login = (userInfo) => {
-      fetch(`${url}/login`, {
-        body: JSON.stringify(userInfo),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        method: "POST",
-      })
-        .then((response) => {
-          localStorage.setItem("token", response.headers.get("Authorization"));
-          return response.json();
-        })
-        .then((payload) => {
-          setCurrentUser(payload);
-        })
-        .catch((error) => console.log("login error: ", error));
- 
-  };
+		console.log("API Fetching");
+	};
 
-// SIGNUP
-  const signup = (userInfo) => {
-    fetch(`${url}/signup`, {
-      body: JSON.stringify(userInfo),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      method: "POST",
-    })
-      .then((response) => {
-        localStorage.setItem("token", response.headers.get("Authorization"));
-        return response.json();
-      })
-      .then((payload) => {
-        setCurrentUser(payload);
-      })
-      .catch((error) => console.log("signup error: ", error));
-  };
+	// LOGOUT
+	const logout = () => {
+		fetch(`${url}/logout`, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: localStorage.getItem("token"),
+			},
+			method: "DELETE",
+		})
+			.then(() => {
+				localStorage.removeItem("token");
+				setCurrentUser(null);
+			})
+			.catch((error) => console.log("logout error: ", error));
+	};
 
-// READ
-  const readEvent = () => {
-    fetch(`${url}/events`)
-      .then((response) => response.json())
-      .then((payload) => {
-        setCurrentEvent(payload);
-      })
-      .catch((error) => console.log("events read errors: ", error));
-  };
+	// LOGIN
+	const login = (userInfo) => {
+		fetch(`${url}/login`, {
+			body: JSON.stringify(userInfo),
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "POST",
+		})
+			.then((response) => {
+        if (!response.ok) {
+        throw Error(response.statusText);
+      }
+				localStorage.setItem("token", response.headers.get("Authorization"));
+				return response.json();
+			})
+			.then((payload) => {
+				setCurrentUser(payload);
+			})
+			.catch((error) => console.log("login error: ", error));
+	};
 
-// CREATE
-  const createEvent = (createdEvent) => {
-    fetch(`${url}/events`, {
-      body: JSON.stringify(createdEvent),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then(() => readEvent())
-      .catch((error) => console.log("create error: ", error));
-  };
+	// SIGNUP
+	const signup = (userInfo) => {
+		fetch(`${url}/signup`, {
+			body: JSON.stringify(userInfo),
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			method: "POST",
+		})
+			.then((response) => {
+        if (!response.ok) {
+        throw Error(response.statusText);
+      }
+				localStorage.setItem("token", response.headers.get("Authorization"));
+				return response.json();
+			})
+			.then((payload) => {
+				setCurrentUser(payload);
+			})
+			.catch((error) => console.log("signup error: ", error));
+	};
 
-// UPDATE
-  const updateEvent = (event, id) => {
-    fetch(`${url}/events/${id}`, {
-      body: JSON.stringify(event),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "PATCH",
-    })
-      .then((response) => response.json())
-      .then(() => readEvent())
-      .catch((error) => console.log("update error: ", error));
-  };
+	// READ
+	const readEvent = () => {
+		fetch(`${url}/events`)
+			.then((response) => response.json())
+			.then((payload) => {
+				setCurrentEvent(payload);
+			})
+			.catch((error) => console.log("events read errors: ", error));
+	};
 
-// DELETE
-  const deleteEvent = (id) => {
-    fetch(`${url}/events/${id}`, {
-      body: JSON.stringify(),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then(() => readEvent())
-      .catch((error) => console.log("delete error: ", error));
-  };
+	// CREATE
+	const createEvent = (createdEvent) => {
+		fetch(`${url}/events`, {
+			body: JSON.stringify(createdEvent),
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+		})
+			.then((response) => response.json())
+			.then(() => readEvent())
+			.catch((error) => console.log("create error: ", error));
+	};
 
-// ROUTES AND COMPONENT CALLS 
-  return (
-   <>
-   <Header currentUser={ currentUser } logout={logout}/>
-   <Routes>
-    <Route path="/signin" element={ <SignIn login={login}/> } />
-    <Route path="/signup" element={ <SignUp signup={signup}/> } />
-    <Route path="/" element={ <Home /> } />
-    <Route path="/concertgoedit/:id" element={ <ConcertGoEdit currentEvent={currentEvent} updateEvent = {updateEvent} currentUser={currentUser} deleteEvent={deleteEvent} /> } />
-    <Route path="/concertgoindex" element={ <ConcertGoIndex currentEvent={ currentEvent }/> } />
+	// UPDATE
+	const updateEvent = (event, id) => {
+		fetch(`${url}/events/${id}`, {
+			body: JSON.stringify(event),
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "PATCH",
+		})
+			.then((response) => response.json())
+			.then(() => readEvent())
+			.catch((error) => console.log("update error: ", error));
+	};
 
-     <Route path="/concertgoprotectedindex" element={ <ConcertGoProtectedIndex currentEvent={ currentEvent } currentUser={ currentUser } deleteEvent = {deleteEvent} /> } />
+	// DELETE
+	const deleteEvent = (id) => {
+		fetch(`${url}/events/${id}`, {
+			body: JSON.stringify(),
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "DELETE",
+		})
+			.then((response) => response.json())
+			.then(() => readEvent())
+			.catch((error) => console.log("delete error: ", error));
+	};
 
-    <Route path="/concertgonew" element={ <ConcertGoNew createEvent={createEvent} currentUser={currentUser}/> } />
-    <Route path="/concertgoshow/:id" element={ <ConcertGoShow currentEvent={currentEvent} deleteEvent={deleteEvent} /> } />
-    <Route path="/aboutus" element={ <AboutUs /> } />
-    <Route path="/concertgofaqs" element={ <ConcertGoFAQ /> } />
-    <Route path="/*" element={ <NotFound /> } />
-    <Route path="/test" element={ <TestCard /> } />
-   </Routes>   
-   <Footer />
-   </>
-  )
+	// ROUTES AND COMPONENT CALLS
+	return (
+		<>
+			<Header currentUser={currentUser} logout={logout} />
+			<Routes>
+				<Route path="/signin" element={<SignIn login={login} />} />
+				<Route path="/signup" element={<SignUp signup={signup} />} />
+				<Route path="/" element={<Home />} />
+				<Route
+					path="/concertgoedit/:id"
+					element={
+						<ConcertGoEdit
+							currentEvent={currentEvent}
+							updateEvent={updateEvent}
+							currentUser={currentUser}
+							deleteEvent={deleteEvent}
+						/>
+					}
+				/>
+				<Route
+					path="/concertgoindex"
+					element={
+						<ConcertGoIndex
+							currentTicketMaster={currentTicketMaster}
+							currentEvent={currentEvent}
+						/>
+					}
+				/>
+
+				<Route
+					path="/concertgoprotectedindex"
+					element={
+						<ConcertGoProtectedIndex
+							currentEvent={currentEvent}
+							currentUser={currentUser}
+							deleteEvent={deleteEvent}
+						/>
+					}
+				/>
+
+				<Route
+					path="/concertgonew"
+					element={
+						<ConcertGoNew createEvent={createEvent} currentUser={currentUser} />
+					}
+				/>
+				<Route
+					path="/concertgoshow/:id"
+					element={
+						<ConcertGoShow
+							currentEvent={currentEvent}
+							deleteEvent={deleteEvent}
+						/>
+					}
+				/>
+				<Route
+					path="/ticketmasterapi"
+					element={
+						<TicketMasterAPI currentTicketMaster={currentTicketMaster} />
+					}
+				/>
+				<Route path="/aboutus" element={<AboutUs />} />
+				<Route path="/concertgofaqs" element={<ConcertGoFAQ />} />
+				<Route path="/*" element={<NotFound />} />
+				<Route path="/test" element={<TestCard />} />
+			</Routes>
+			<Footer />
+		</>
+	);
 }
 
 export default App;

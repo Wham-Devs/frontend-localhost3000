@@ -1,19 +1,14 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
+
 const ConcertGoFAQ = () => {
 	const faqs = [
 
 		{
 			id: 2,
-			question: "Where is the concert venue located?",
-			answer: "The concert venue is located at [venue address].",
-		},
-		{
-			id: 3,
-			question: "Is there parking available at the venue?",
-			answer:
-				"Yes, there is parking available at the venue. Please refer to the parking information provided on our website for more details.",
+			question: "",
+			answer: "",
 		},
 		{
 			id: 4,
@@ -61,8 +56,10 @@ const ConcertGoFAQ = () => {
 
 	return (
 		<div className="h-screen w-screen">
-			<h1 className="text-red-500 font-anton text-7xl w-screen bg-black p-0 m">FAQs</h1> <br/>
+			
 		<div className="bg-black grid grid-cols-3 gap-8 h-screen w-screen">
+		<h1 className="text-red-500 font-anton text-9xl w-screen pt-4 bg-black p-0">FAQs</h1>
+		 <br/><br/><br/>
 		
 			{faqs.map(({ id, question, answer }) => {
 				return (
@@ -71,7 +68,7 @@ const ConcertGoFAQ = () => {
 						<CardBody
 							// className="bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100"
 							key={id}>
-							<CardTitle className="text-red-500 text-xl font-anton" tag="h5">
+							<CardTitle className="text-red-500 text-xl italic" tag="h5">
 								{question}
 							</CardTitle>
 							<CardSubtitle className="text-white" tag="h6">
